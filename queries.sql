@@ -17,7 +17,7 @@ LIMIT 10
 
 
 -- Question 2
-/* What are the highest and least rented movie categories in terms of total rentals and revenue? */
+/* How do total rentals and revenues vary across the different movie categories?  */
 
 WITH t1 AS (SELECT c.name AS movie_category, COUNT(*) AS no_of_rentals
 		    FROM film f
@@ -53,7 +53,7 @@ ORDER BY 2 DESC;
 
 
 -- Question 3
-/* How do the number of movie rentals differ across both stores? */
+/* How do the number of rentals differ across both stores? */
 
 WITH t1 AS (SELECT ('store ' || sto.store_id) AS store_name, c.name AS movie_category,
 				COUNT(*) AS no_of_rentals
@@ -88,7 +88,7 @@ ON t2.movie_category = t3.movie_category
 
 
 -- Question 4
-/* Who are the top 10 customers. Which of them paid the most difference in terms of payments in 2017? */
+/* Who are the top 10 customers. Which of them paid the most difference in terms of payments in 2007? */
 
 WITH t1 AS (SELECT first_name || ' ' || last_name AS customer_name, SUM(amount) amount_paid
 		    FROM customer c

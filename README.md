@@ -166,7 +166,7 @@ Query:
 ```
 Findings:
 
-![Top 10 customers and max difference paid](./images/q4.jpg)
+![Top 10 customers and max difference paid](./Images/q4.jpg)
 
 ### Credits
 - Udacity: [Udacity Data Science Nanodegree Program](https://www.udacity.com/course/data-scientist-nanodegree--nd025)

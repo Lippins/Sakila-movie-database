@@ -43,7 +43,7 @@ Query:
 ```
 Findings:
 
-![The top 10 countries with regard to customer base](./images/q1.jpg)
+![The top 10 countries with regard to customer base](./Images/q1.jpg)
 
 ##### 2. How do total rentals and revenues vary across the different movie categories?
 
@@ -83,7 +83,7 @@ Query:
 ```
 Findings:
 
-![Total rentals and revenues vary across the different movie categories](./images/q2.jpg)
+![Total rentals and revenues vary across the different movie categories](./Images/q2.jpg)
 
 ##### 3. How do the number of rentals differ across both stores? 
 
@@ -123,7 +123,7 @@ Query:
 ```
 Findings:
 
-![Rental patterns accross the movie stores](./images/q3.jpg)
+![Rental patterns accross the movie stores](./Images/q3.jpg)
 
 ##### 4. Who are the top 10 customers and which of them paid the most difference in terms of payments in 2007?
 

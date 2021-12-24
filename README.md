@@ -7,26 +7,25 @@ November 10, 2021.
 This project queries the Sakila DVD Rental database. The database holds information about a company that rents movie DVDs. The goal is to gain an understanding of the customer base, rental patterns, revenue patterns and performance of the rental stores. 
 
 ### Database overview
-The sakila database contains 17 tables each containing the following information. These tables are related as shown with the ERD below:
-![]()
+The sakila database contains 17 tables. These tables are related as shown in the ERD below:
 
-#### The project aims to answer the following questions.
+![Sakila ERD](./Images/ERD.png)
+
+### The project aims to answer the following questions.
 - What are the top 10 countries with regard to customer base?
 - How do total rentals and revenues vary across the different movie categories? 
 - How do the number of rentals differ across both stores? 
 - Who are the top 10 customers and which of them paid the most difference in terms of payments in 2007? 
 
-#### Tools
-- Analysis
-    * PostgreSQL [(PgAdmin4)](https://www.pgadmin.org)
-- Visualization
-    * Microsoft Excel [(Office365 suite)](https://www.office.com/)
-- Presentation
-    * Microsoft Powerpoint [(Office365 suite)](https://www.office.com/)
+### Tools
+- Analysis: PostgreSQL [(PgAdmin4)](https://www.pgadmin.org)
+- Visualization: Microsoft Excel [(Office365 suite)](https://www.office.com/)
+- Presentation: Microsoft Powerpoint [(Office365 suite)](https://www.office.com/)
 
-#### Analysis
-What are the top 10 countries with regard to customer base?
-- Query:
+### Analysis
+##### 1. What are the top 10 countries with regard to customer base?
+
+Query:
 ```
     SELECT co.country, COUNT(DISTINCT r.customer_id) customer_base
     FROM country co
@@ -42,10 +41,13 @@ What are the top 10 countries with regard to customer base?
     ORDER BY 2 DESC
     LIMIT 10;
 ```
-- Findings:
+Findings:
 
-How do total rentals and revenues vary across the different movie categories?
+![The top 10 countries with regard to customer base](./images/q1.jpg)
 
+##### 2. How do total rentals and revenues vary across the different movie categories?
+
+Query:
 ```
     WITH t1 AS (SELECT c.name AS movie_category, COUNT(*) AS no_of_rentals
                 FROM film f
@@ -79,10 +81,13 @@ How do total rentals and revenues vary across the different movie categories?
     ON t1.movie_category = t2.movie_category
     ORDER BY 2 DESC;
 ```
-- Findings:
+Findings:
 
-How do the number of rentals differ across both stores? 
-- Query:
+![Total rentals and revenues vary across the different movie categories](./images/q2.jpg)
+
+##### 3. How do the number of rentals differ across both stores? 
+
+Query:
 ```
     WITH t1 AS (SELECT ('store ' || sto.store_id) AS store_name,
                     c.name AS movie_category,
@@ -116,10 +121,13 @@ How do the number of rentals differ across both stores?
     JOIN t3
     ON t2.movie_category = t3.movie_category
 ```
-- Findings:
+Findings:
 
-Who are the top 10 customers and which of them paid the most difference in terms of payments in 2007?
-- Query:
+![Rental patterns accross the movie stores](./images/q3.jpg)
+
+##### 4. Who are the top 10 customers and which of them paid the most difference in terms of payments in 2007?
+
+Query:
 ```
     WITH t1 AS (SELECT first_name || ' ' || last_name AS customer_name,
                 SUM(amount) amount_paid
@@ -156,8 +164,9 @@ Who are the top 10 customers and which of them paid the most difference in terms
     GROUP BY 1
     ORDER BY 2 DESC
 ```
-- Findings:
+Findings:
 
+![Top 10 customers and max difference paid](./images/q4.jpg)
 
 ### Credits
 - Udacity: [Udacity Data Science Nanodegree Program](https://www.udacity.com/course/data-scientist-nanodegree--nd025)
